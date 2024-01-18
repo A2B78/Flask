@@ -1,10 +1,4 @@
-Bien sûr, voici une personnalisation plus détaillée du fichier README.md, avec des sections supplémentaires telles que "Installation", "Utilisation", "Contributions", etc. :
-
-```markdown
-# Nom de votre Projet
-
-## Description
-(Description brève de votre projet.)
+# BDD FLASK
 
 ## Structure du Projet
 
