@@ -1,14 +1,16 @@
 from flask import Flask, render_template, request, redirect
 import psycopg2
+import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
+load_dotenv()
 
-# Remplacez ces informations par celles de votre base de données RDS PostgreSQL
-DATABASE_HOST = "mark.cfas4wq4cb4x.eu-west-3.rds.amazonaws.com"
-DATABASE_PORT = "5432"
-DATABASE_NAME = "postgres"
-DATABASE_USER = "postgres"
-DATABASE_PASSWORD = "CGKKM4JejXYQ5PIRgC8a"
+DATABASE_HOST = os.environ.get('DATABASE_HOST')
+DATABASE_PORT = os.environ.get('DATABASE_PORT')
+DATABASE_NAME = os.environ.get('DATABASE_NAME')
+DATABASE_USER = os.environ.get('DATABASE_USER')
+DATABASE_PASSWORD = os.environ.get('DATABASE_PASSWORD')
 
 def create_connection():
     connection = psycopg2.connect(
