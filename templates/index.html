@@ -1,4 +1,52 @@
-<h1> Notes des étudiants </h1>
-{% for student in students %}
-        <i style="font-size: 30px">La note de {{ student[1] }} {{ student[2] }} est de {{ student[3] }} </i>
-{% endfor %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>App Student</title>
+</head>
+<body>
+    <div class="container">
+        <div class="table-section">
+            <h1>Liste des étudiants</h1>
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Score</th>
+                    <th>Action</th>
+                    <th>Modifier</th>
+                </tr>
+                {% for student in app_student_data %}
+                <tr>
+                    <td>{{ student[0] }}</td>
+                    <td>{{ student[1] }}</td>
+                    <td>{{ student[2] }}</td>
+                    <td>{{ student[3] }}</td>
+                    <td><a href="/delete_student/{{ student[0] }}">Supprimer</a></td>
+                    <td><a href="/edit_student/{{ student[0] }}">Modifier</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="form-section">
+            <h1>Ajouter un nouvel étudiant</h1>
+            <form method="post" action="/add_student">
+                <label for="first_name">Prénom:</label>
+                <input type="text" name="first_name" required><br>
+
+                <label for="last_name">Nom:</label>
+                <input type="text" name="last_name" required><br>
+
+                <label for="score">Score:</label>
+                <input type="number" name="score" required><br>
+
+                <input type="submit" value="Ajouter">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

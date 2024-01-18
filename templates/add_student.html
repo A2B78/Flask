@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un étudiant</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Ajouter un étudiant</h1>
+    
+    <form method="POST" action="{{ url_for('add_student') }}">
+        <label for="first_name">Prénom:</label>
+        <input type="text" id="first_name" name="first_name" required><br>
+
+        <label for="last_name">Nom:</label>
+        <input type="text" id="last_name" name="last_name" required><br>
+
+        <label for="grade">Note:</label>
+        <input type="text" id="grade" name="grade" required><br>
+
+        <button type="submit">Ajouter</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('student_list') }}">Retour à la liste des étudiants</a>
+</body>
+</html>
+
